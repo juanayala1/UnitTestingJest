@@ -1,50 +1,50 @@
-const text = "Hola Mundo";
-const fruits = ['Manzana', 'Melon', 'Pera', 'Banano'];
+const text = 'Hola Mundo';
+const fruits = ['Manzana', 'Melon', 'Pera', 'Naranja'];
 
-test('Debe contener un texto', () =>{
-    expect(text).toMatch(/Mundo/);
-})
+test('Debe contener un texto', () => {
+  expect(text).toMatch(/Mundo/);
+});
 
-test('Tenemos una banana?', ()=>{
-    expect(fruits).toContain('Banano');
-})
+test('Tenemos una naranja?', () => {
+  expect(fruits).toContain('Naranja');
+});
 
-test('Mayor que', ()=>{
-    expect(10).toBeGreaterThan(9);
-})
+test('Mayor que', () => {
+  expect(10).toBeGreaterThan(9);
+});
 
-test('Verdadero', ()=>{
-    expect(true).toBeTruthy();
-})
+test('Verdadero', () => {
+  expect(true).toBeTruthy();
+});
 
-const reverseString = (str, callBack) =>{
-    callBack(str.split("").reverse().join(""))
+const reverseString = (str, callBack) => {
+  callBack(str.split('').reverse().join(''));
 };
 
-test("Probar un CallBack", () => {
-    reverseString('Hola', (str) => {
-        expect(str).toBe('aloH');
-    })
-})
+test('Probar un CallBack', () => {
+  reverseString('Hola', (str) => {
+    expect(str).toBe('aloH');
+  });
+});
 
-const reverseString2 = str =>{
-    return new Promise((resolve, reject) =>{
-        if(!str){
-            reject(Error('Error'))
-        }
-        resolve(str.split("").reverse().join(""))
-    });
+const reverseString2 = (str) => {
+  return new Promise((resolve, reject) => {
+    if (!str) {
+      reject(Error('Error'));
+    }
+    resolve(str.split('').reverse().join(''));
+  });
 };
 
-test("Promar una promesa", () =>{
-    return reverseString2('Hola').then(string =>{
-        expect(string).toBe('aloH');
-    })
-    });
+test('Promar una promesa', () => {
+  return reverseString2('Hola').then((string) => {
+    expect(string).toBe('aloH');
+  });
+});
 
-test("Probar async/await", async () => { 
-    const string = await reverseString2('hola');
-    expect(string).toBe('aloh');
+test('Probar async/await', async () => {
+  const string = await reverseString2('hola');
+  expect(string).toBe('aloh');
 });
 
 // /* Funciones que se van a después de una prueba */
@@ -54,4 +54,3 @@ test("Probar async/await", async () => {
 // /* Funciones que se van a antes de una prueba */
 // beforeEach(()=>console.log('Antes de cada prueba'));
 // beforeAll(()=> console.log('Antes de todas las pruebas'));
-
